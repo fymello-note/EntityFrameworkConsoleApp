@@ -59,5 +59,38 @@ namespace EntityFrameworkConsoleApp.Services
 
             return films.Values.ToList();
         }
+
+        public void AddFilm(FilmViewModel film)
+        {
+
+            using (var db = new TestaDatabaseDbContext())
+            {
+                var newFilm = new Film()
+                {
+                    Title = film.Title,
+                    ReleaseDate = film.ReleaseDate,
+                    Producer = film.Producer,
+                    Director = film.Director,
+                    GenreId = film.GenreId,
+                    Actor = film.Cast.Select(actorName => new Actor() { Name = actorName}).ToList() 
+                };
+
+                db.Film.Add(newFilm);
+
+                /*foreach (var actorName in film.Cast)
+                {
+                    var NewActor = new Actor()
+                    {
+                        FilmId = newFilm.FilmId,
+                        Name = actorName
+                    };
+
+                    db.Actor.Add(NewActor);
+                }*/
+
+                db.SaveChanges();
+            }
+
+        }
     }
 }
