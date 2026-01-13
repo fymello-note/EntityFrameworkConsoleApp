@@ -72,7 +72,8 @@ namespace EntityFrameworkConsoleApp.Services
                     Producer = film.Producer,
                     Director = film.Director,
                     GenreId = film.GenreId,
-                    Actor = film.Cast.Select(actorName => new Actor() { Name = actorName}).ToList() 
+                    CreationDate = DateTime.Now,
+                    Actor = film.Cast.Select(actorName => new Actor() { Name = actorName, CreationDate = DateTime.Now }).ToList() 
                 };
 
                 db.Film.Add(newFilm);
