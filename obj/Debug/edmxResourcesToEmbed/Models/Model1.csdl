@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Actor">
+    <Key>
+      <PropertyRef Name="ActorId" />
+    </Key>
+    <Property Name="ActorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FilmId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Film" Relationship="Self.FK__Actor__FilmId__160F4887" FromRole="Actor" ToRole="Film" />
+  </EntityType>
+  <EntityType Name="Film">
+    <Key>
+      <PropertyRef Name="FilmId" />
+    </Key>
+    <Property Name="FilmId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Director" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Producer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GenreId" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Actor" Relationship="Self.FK__Actor__FilmId__160F4887" FromRole="Film" ToRole="Actor" />
+    <NavigationProperty Name="Genre" Relationship="Self.FK__Film__GenreId__06CD04F7" FromRole="Film" ToRole="Genre" />
+  </EntityType>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="GenreId" />
+    </Key>
+    <Property Name="GenreId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Film" Relationship="Self.FK__Film__GenreId__06CD04F7" FromRole="Genre" ToRole="Film" />
+  </EntityType>
+  <Association Name="FK__Actor__FilmId__160F4887">
+    <End Role="Film" Type="Self.Film" Multiplicity="1" />
+    <End Role="Actor" Type="Self.Actor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Film">
+        <PropertyRef Name="FilmId" />
+      </Principal>
+      <Dependent Role="Actor">
+        <PropertyRef Name="FilmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Film__GenreId__06CD04F7">
+    <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+    <End Role="Film" Type="Self.Film" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="GenreId" />
+      </Principal>
+      <Dependent Role="Film">
+        <PropertyRef Name="GenreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TestaDatabaseDbContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Actor" EntityType="Self.Actor" />
+    <EntitySet Name="Film" EntityType="Self.Film" />
+    <EntitySet Name="Genre" EntityType="Self.Genre" />
+    <AssociationSet Name="FK__Actor__FilmId__160F4887" Association="Self.FK__Actor__FilmId__160F4887">
+      <End Role="Film" EntitySet="Film" />
+      <End Role="Actor" EntitySet="Actor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Film__GenreId__06CD04F7" Association="Self.FK__Film__GenreId__06CD04F7">
+      <End Role="Genre" EntitySet="Genre" />
+      <End Role="Film" EntitySet="Film" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,12 @@
+C:\Users\For IT\code\ProgettoProva\EntityFrameworkConsoleApp\obj\Debug\EntityFrameworkConsoleApp.csproj.AssemblyReference.cache
+C:\Users\For IT\code\ProgettoProva\EntityFrameworkConsoleApp\obj\Debug\EntityFrameworkConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\For IT\code\ProgettoProva\EntityFrameworkConsoleApp\bin\Debug\EntityFrameworkConsoleApp.exe.config
+C:\Users\For IT\code\ProgettoProva\EntityFrameworkConsoleApp\bin\Debug\EntityFrameworkConsoleApp.exe
+C:\Users\For IT\code\ProgettoProva\EntityFrameworkConsoleApp\bin\Debug\EntityFrameworkConsoleApp.pdb
+C:\Users\For IT\code\ProgettoProva\EntityFrameworkConsoleApp\bin\Debug\EntityFramework.dll
+C:\Users\For IT\code\ProgettoProva\EntityFrameworkConsoleApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\For IT\code\ProgettoProva\EntityFrameworkConsoleApp\bin\Debug\EntityFramework.xml
+C:\Users\For IT\code\ProgettoProva\EntityFrameworkConsoleApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\For IT\code\ProgettoProva\EntityFrameworkConsoleApp\obj\Debug\EntityFr.F28AA90D.Up2Date
+C:\Users\For IT\code\ProgettoProva\EntityFrameworkConsoleApp\obj\Debug\EntityFrameworkConsoleApp.exe
+C:\Users\For IT\code\ProgettoProva\EntityFrameworkConsoleApp\obj\Debug\EntityFrameworkConsoleApp.pdb
